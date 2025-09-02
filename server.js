@@ -1,11 +1,21 @@
 import express from "express"
+import nunjucks from "nunjucks"
 // let, var, 
 
 const app = express()
+app.use(express.static("public"))
+
+nunjucks.configure("views", {
+    autoescape: true,
+    express: app
+})
 
 app.get("/", (req, res) => {
-    console.log(req)
-    res.send("<h1>Hello World!<h1>")
+    res.render("index.njk", {
+        title:"Vår första dynamiska sida",
+        message:"tack vare nunjucks"
+    })
+
 } )
 
 app.get("/about", (req, res) => {
