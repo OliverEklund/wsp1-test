@@ -19,10 +19,11 @@ app.get("/", (req, res) => {
 } )
 
 app.get("/about", (req, res) => {
-   res.json({
-    "message": "Evil"
-   })
-} )
+    res.render("about.njk", {
+        title: "ABOUT PAGE: IF IF IF IF IF IF IF IF IF",
+        message: "denna webbsida är skolarbete"
+    })
+})
 
 app.listen(3000, () => {
     console.log("server is running on http://localhost:3000")
