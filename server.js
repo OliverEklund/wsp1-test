@@ -1,8 +1,10 @@
 import express from "express"
 import nunjucks from "nunjucks"
+import morgan from "morgan"
 // let, var, 
 
 const app = express()
+app.use(morgan("dev"))
 app.use(express.static("public"))
 
 nunjucks.configure("views", {
@@ -27,4 +29,9 @@ app.get("/about", (req, res) => {
 
 app.listen(3000, () => {
     console.log("server is running on http://localhost:3000")
+})
+
+app.get("/greeting", (req, res) => {
+    console.log(req.query)
+    res.send(`hejsan ${req.query.name}, ${req.query.message}`)
 })
