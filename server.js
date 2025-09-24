@@ -1,6 +1,7 @@
 import express from "express"
 import nunjucks from "nunjucks"
 import morgan from "morgan"
+import indexRouter from "./routes/index.js"
 // let, var, 
 
 const app = express()
@@ -35,3 +36,10 @@ app.get("/greeting", (req, res) => {
     console.log(req.query)
     res.send(`hejsan ${req.query.name}, ${req.query.message}`)
 })
+
+app.get("/search", (req, res) => {
+  const query = req.query.q
+  res.send(`You searched for: ${query}`)
+})
+
+app.use("/", indexRouter)
