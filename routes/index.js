@@ -1,11 +1,40 @@
 import express from "express"
+import fs from "fs"
 
 const router = express.Router()
 
-router.get("/", (req, res) => {home})
 
-router.get("/about", (req, res) => {about})
+router.get("/", (req, res) => {
+    res.render("index.njk", {
+        title: "Vår första dynamiska sida",
+        message: "Med Nunjucks skapar vi någonting!"
+    })
+})
 
-router.get("/greeting", (req, res) => {greeting})
+router.get("/about", (req, res) => {
+    res.render("about.njk", {
+        title: "Om oss",
+        message: "Detta är ett skolarbete av Oliver."
+    })
+})
+
+router.get("/greeting", (req, res) => {
+    console.log(req.query)
+    res.render("greeting.njk", {
+        title: "Hälsningssida",
+        name: req.query.name,
+        message: req.query.message
+    })
+})
+
+router.get("/movies", (req, res) => {
+    const movies = JSON.parse(fs.readFileSync("./data/movies.json"))
+    // res.json(movies)
+    res.render("movies.njk", {
+        title: "Movie-showcase",
+        name:"Movie showcase",
+        message: "Dessa är bra filmer"
+    })
+})
 
 export default router

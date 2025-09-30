@@ -1,0 +1,38 @@
+{
+    "movies": [
+        {
+            "id": 1,
+            "title": "The dark crystal",
+            "director": "Jim Henson",
+            "year": 1982,
+            "genre": "Fantasy"
+        },
+        {
+            "id": 2,
+            "title": "The Shawshank Redemption",
+            "director": "Frank Darabont",
+            "year": 1994,
+            "genre": "Drama"
+        },
+        {
+            "id": 3,
+            "title": "Tree, moon & me",
+            "director": "John Frank",
+            "year": 1932,
+            "genre": "Surrealist eco-socialist propaganda"
+        },
+        {
+            "id": 4,
+            "title": "Pulp Fiction",
+            "director": "Quentin Tarantino",
+            "year": 1994,
+            "genre": "Crime"
+        },
+        {
+            "title": "hamlet",
+            "director": "William Shakespeare",
+            "year": 1623,
+            "genre": "drama"
+        }
+    ]
+}
