@@ -27,13 +27,14 @@ router.get("/greeting", (req, res) => {
     })
 })
 
-const movies = JSON.parse(fs.readFileSync("./data/movies.json"))
+const {movies} = JSON.parse(fs.readFileSync("./data/movies.json"))
 router.get("/movies", (req, res) => {
     // res.json(movies)
     res.render("movies.njk", {
         title: "Movie-showcase",
         name:"Movie showcase",
-        message: "Dessa är bra filmer"
+        message: "Dessa är bra filmer",
+        movies
     })
 })
 

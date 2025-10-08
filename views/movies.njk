@@ -3,16 +3,16 @@
 {% block content%}
     <h1>{{title}}</h1>
     <p>{{message}}</p>
-    <p>{{movies}}</p>
 
     <ul>
-        {{ for movie in movies }}
+        {% for movie in movies %}
         <li>
-            <h1>{{ movie.title }}</h1>
+            <h1><a href="movie.id">{{ movie.title }}</a></h1>
             <p>{{ movie.director }}</p>
             <p>{{ movie.year }}</p>
             <p>{{ movie.genre }}</p>
         </li>
+        {% endfor %}
     </ul>
 </main>
 {% endblock %}
